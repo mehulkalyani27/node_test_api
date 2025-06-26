@@ -27,7 +27,7 @@ app.get("/", (_, res) => {
 
 app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
-app.use('api',protectedRoutes);
+app.use('/api',protectedRoutes);
 
 
 // 🚀 Start Express Server
