@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../../models/user.model');
+const cookieConfig = require('../../utils/cookieConfig');
 
 exports.login = async (req, res) => {
   const { username, password } = req.body;
@@ -27,6 +28,7 @@ exports.login = async (req, res) => {
         expiresIn: "7d"
       });
 
+    res.cookie("token", token, cookieConfig);
     // 5. Send token and user data
     res.status(200).json({
       status: true,
